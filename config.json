@@ -1,0 +1,44 @@
+{
+  "version": "1.1",
+  "esp_ip": "IP_OF_ESP",
+  "delay": 60,
+  "save_images": true,
+  "monotone_detection": true,
+  "exit_on_error": true,
+  "mqtt_settings": {
+    "broker": "BROKER_IP",
+    "username": "USERNAME",
+    "password": "PASSWORD",
+    "prefix": "MQTT_PREFIX",
+    "topic_base": "BASE_TOPIC",
+    "reconnect_wait": 5
+  },
+  "image_parameters" : {
+    "cut_indices": {
+      "upper_left": [400, 305],
+      "lower_right": [854, 415]
+    },
+    "calib_centers": {
+      "c1": [151, 499],
+      "c2": [1175, 644]
+    },
+    "calib_areas": {
+        "a1": {
+            "upper_left": [100, 460],
+            "lower_right": [200, 554]
+        },
+        "a2": {
+            "upper_left": [1120, 570],
+            "lower_right": [1243, 701]
+        }
+    },
+
+    "x_skew_factor": -0.06,
+    "bi_end_left": 125,
+    "bi_start_right": 260,
+    "bi_max_left": 75,
+    "bi_max_right": 50,
+    "contrast_factor": 2,
+    "skip_position_calibration": false
+  }
+}

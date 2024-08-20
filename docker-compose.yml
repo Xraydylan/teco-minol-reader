@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    container_name: minol_app
+    restart: always
+    volumes:
+      - .:/app
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
