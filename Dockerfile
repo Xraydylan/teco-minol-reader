@@ -17,4 +17,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Run target.py when the container launches
 # Code is run as root user
 # "-u" flag is used to avoid buffering of the output
-CMD ["python3", "-u", "master_main.py"]
+CMD ["python3", "-u", "minol_main.py"]
