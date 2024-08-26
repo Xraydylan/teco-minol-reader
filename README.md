@@ -85,8 +85,14 @@ For the calibration run the `calibrate_minol.py` script.
 
 The following images will be displayed when running the script:
 1. Full image
-2. Cut image
-3. Cut image after skew correction, brightness correction and contrast correction
+2. Full image with marked regions
+3. Cut image
+4. Cut image after skew correction, brightness correction and contrast correction
+
+Note that the marked region are from the points from the configuration file and displayed before they are calibrated, so they may not appear to visually match.
+
+Conduct a calibration if the current calibration is not sufficient anymore.
+
 
 ### Getting correct calibration positions
 
@@ -99,3 +105,9 @@ To set the coordinates of the cut_indices, calib_centers and calib_areas the fol
 5. Set the calib_areas to the area of the calibration dots. You can select a generous area around the calibration dots but leave enough room to not include any other dark surfaces. Allow for "wiggle room" if the camera moves slightly. The areas are defined by 2 points marking the upper left and lower right corners of the areas.
 6. Set the other parameters as needed.
 7. Rerun the `calibrate_minol.py` script to verify the settings in the cut image and the cut image after corrections.
+
+This image can be used a reference for the calibration:
+![Calibration image](img/calibration.png)
+- Red: Points for cut_indices
+- Blue: Points for calib_centers
+- Magenta: Points for calib_areas

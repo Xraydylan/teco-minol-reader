@@ -15,21 +15,21 @@
   },
   "image_parameters" : {
     "cut_indices": {
-      "upper_left": [400, 305],
-      "lower_right": [854, 415]
+      "upper_left": [399, 300],
+      "lower_right": [853, 410]
     },
     "calib_centers": {
-      "c1": [151, 499],
-      "c2": [1175, 644]
+      "c1": [150, 494],
+      "c2": [1174, 639]
     },
     "calib_areas": {
         "a1": {
-            "upper_left": [100, 460],
-            "lower_right": [200, 554]
+            "upper_left": [99, 455],
+            "lower_right": [199, 549]
         },
         "a2": {
-            "upper_left": [1120, 570],
-            "lower_right": [1243, 701]
+            "upper_left": [1119, 565],
+            "lower_right": [1242, 696]
         }
     },
 

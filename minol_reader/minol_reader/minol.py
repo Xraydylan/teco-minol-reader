@@ -156,6 +156,12 @@ class MINOL:
         cv2.setMouseCallback("Frame", self._click_callback)
         self._smart_key_wait("Frame", delay=0.5)
 
+        marked = self.mark_poi(frame)
+
+        cv2.imshow("Frame Marked", marked)
+        cv2.setMouseCallback("Frame Marked", self._click_callback)
+        self._smart_key_wait("Frame Marked", delay=0.5)
+
         fcut_1, fcut_2 = self.fcut_1, self.fcut_2
         if not self.skip_position_calibration:
             # Corrects position of cut
@@ -239,6 +245,31 @@ class MINOL:
         print("Disconnecting")
         self.cam.set_online_status(False, wait=True, affect_worker=True)
         return frame
+
+    def mark_poi(self, frame):
+        red = (0, 0, 255)
+        green = (0, 255, 0)
+        blue = (255, 0, 0)
+        yellow = (0, 255, 255)
+        magenta = (255, 0, 255)
+
+        marked = frame.copy()
+        marked = cv2.rectangle(marked, self.fcut_1, self.fcut_2, green, 1)
+        marked = cv2.circle(marked, self.fcut_1, 3, red, 2)
+        marked = cv2.circle(marked, self.fcut_2, 3, red, 2)
+
+        marked = cv2.circle(marked, self.c1, 3, blue, 2)
+        marked = cv2.circle(marked, self.c2, 3, blue, 2)
+
+        marked = cv2.rectangle(marked, self.a1[0], self.a1[1], yellow, 1)
+        marked = cv2.circle(marked, self.a1[0], 3, magenta, 2)
+        marked = cv2.circle(marked, self.a1[1], 3, magenta, 2)
+
+        marked = cv2.rectangle(marked, self.a2[0], self.a2[1], yellow, 1)
+        marked = cv2.circle(marked, self.a2[0], 3, magenta, 2)
+        marked = cv2.circle(marked, self.a2[1], 3, magenta, 2)
+
+        return marked
 
     # old
     def _rough_cut(self, frame):
@@ -353,7 +384,7 @@ class MINOL:
         x, y, _ = circle
         x += calib_points[0][0]
         y += calib_points[0][1]
-        return x, y  # x, y
+        return int(x), int(y)  # x, y
 
     def find_disk(self, frame):
         # Reduce the noise to avoid false circle detection
