@@ -82,7 +82,7 @@ class MINOL:
         calib_centers = image_parameters.get("calib_centers")
         if calib_centers is not None:
             self.c1 = calib_centers.get("c1", self.c1)
-            self.p2 = calib_centers.get("c2", self.c2)
+            self.c2 = calib_centers.get("c2", self.c2)
 
         # Calib areas Defaults
         self.a1 = ((100, 460), (200, 554))
